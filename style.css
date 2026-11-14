@@ -1,0 +1,98 @@
+/* Marvarid | AI & Robotics: pastel fairytale theme (works with sky.css + sky.js) */
+:root {
+  --ink: #3b2f63;
+  --muted: #6a5f8c;
+  --pink: #ff8fc7;
+  --purple: #8a63d2;
+  --sky: #6cb8f5;
+  --card: rgba(255, 255, 255, .64);
+  --card-edge: rgba(255, 255, 255, .85);
+  --shadow: 0 14px 40px rgba(138, 99, 210, .18);
+  --px: "Press Start 2P", ui-monospace, "Courier New", monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; min-height: 100vh; padding: 28px 16px 64px;
+  color: var(--ink); background: #f2e2ff;
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.04rem; line-height: 1.65;
+  display: flex; flex-direction: column; align-items: center;
+}
+.page { width: 100%; max-width: 900px; }
+a { color: var(--purple); text-underline-offset: 3px; }
+a:hover { color: #d0489a; }
+:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- glass cards ---------- */
+.card {
+  background: var(--card); border: 1px solid var(--card-edge); border-radius: 26px;
+  padding: 28px 30px; margin-bottom: 26px; box-shadow: var(--shadow);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(138, 99, 210, .26); }
+
+/* ---------- hero ---------- */
+.hero { text-align: center; padding: 38px 30px 28px; }
+.kicker { margin: 0 0 6px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; color: var(--purple); }
+h1 {
+  margin: 0 0 14px; font-size: clamp(1.7rem, 5.4vw, 2.7rem); line-height: 1.2; font-weight: 800; color: var(--purple);
+  background: linear-gradient(90deg, #f06fb4, #8a63d2 50%, #4fa8ee); -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p { margin: 0 auto; max-width: 620px; color: var(--muted); }
+.pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
+.pills a {
+  text-decoration: none; font-weight: 700; font-size: .92rem; color: var(--ink);
+  background: rgba(255, 255, 255, .75); border: 1px solid var(--card-edge); padding: 8px 16px; border-radius: 999px;
+  transition: transform .2s, background .2s;
+}
+.pills a:hover { transform: translateY(-2px); background: #fff; color: var(--purple); }
+.pills a.hot { background: linear-gradient(135deg, #ff9fd0, #a98bef); color: #fff; border-color: transparent; }
+
+/* ---------- headings ---------- */
+h2 { margin: 0 0 12px; font-size: 1.5rem; line-height: 1.3; color: var(--ink); }
+h3 { margin: 0 0 8px; font-size: 1.2rem; line-height: 1.3; }
+.section-title { margin: 34px 4px 14px; font-size: 1.6rem; }
+.section-title::after { content: " ✦"; color: var(--pink); }
+p { margin: 0 0 12px; }
+
+/* ---------- arcade banner ---------- */
+.arcade-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(60, 40, 110, .92), rgba(110, 70, 190, .9)); color: #fff; border-color: rgba(255, 255, 255, .35);
+}
+.arcade-banner h2 { font-family: var(--px); font-size: clamp(.8rem, 3vw, 1.05rem); color: #ffe27a; line-height: 1.6; margin-bottom: 8px; }
+.arcade-banner p { margin: 0; color: #e8defa; max-width: 520px; }
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 800; color: #3b2f63; background: #ffe27a;
+  padding: 12px 22px; border-radius: 14px; box-shadow: 0 6px 0 #d9b52e; transition: transform .15s, box-shadow .15s;
+}
+.btn:hover { color: #3b2f63; transform: translateY(2px); box-shadow: 0 4px 0 #d9b52e; }
+.btn:active { transform: translateY(6px); box-shadow: 0 0 0 #d9b52e; }
+
+/* ---------- projects ---------- */
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0 0 12px; }
+.tags li { font-size: .76rem; font-weight: 700; padding: 3px 11px; border-radius: 999px; background: #efe6ff; color: #5a3ea6; }
+.frame {
+  margin-top: 16px; border-radius: 18px; overflow: hidden; background: #fff;
+  border: 2px solid rgba(255, 255, 255, .95); box-shadow: 0 8px 26px rgba(108, 184, 245, .28);
+}
+.frame iframe { display: block; width: 100%; border: 0; }
+.links { margin: 14px 0 0; font-size: .95rem; }
+.soft { color: var(--muted); font-style: italic; }
+
+footer.hero { margin-top: 10px; padding: 24px 30px; }
+footer.hero p { margin-bottom: 4px; }
+
+@media (max-width: 560px) {
+  body { padding: 18px 12px 48px; font-size: 1rem; }
+  .card, .hero { padding: 22px 18px; border-radius: 22px; }
+  .arcade-banner { flex-direction: column; align-items: flex-start; }
+  .frame iframe { height: 420px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card, .pills a, .btn { transition: none; }
+}

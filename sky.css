@@ -1,0 +1,53 @@
+/* Fairytale sky: soft pink / lavender / sky-blue, twinkling stars, drifting glow.
+   Shared by index.html and arcade.html. Needs sky.js (it builds the stars). */
+.sky {
+  position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+  background: linear-gradient(165deg, #ffe3f2 0%, #f2e2ff 38%, #dcebff 72%, #cde8ff 100%);
+}
+.sky .blob {
+  position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55;
+  animation: drift 28s ease-in-out infinite alternate;
+}
+.sky .b1 { width: 46vmax; height: 46vmax; left: -12vmax; top: -10vmax; background: #ffb8dc; }
+.sky .b2 { width: 42vmax; height: 42vmax; right: -14vmax; top: 18vh; background: #cfa8ff; animation-duration: 34s; }
+.sky .b3 { width: 50vmax; height: 50vmax; left: 10vw; bottom: -24vmax; background: #9fd3ff; animation-duration: 40s; }
+@keyframes drift { to { transform: translate(4vmax, 3vmax) scale(1.08); } }
+
+.sky .star {
+  position: absolute; border-radius: 50%; background: #fff;
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, .9);
+  animation: twinkle var(--d, 4s) ease-in-out var(--delay, 0s) infinite;
+}
+.sky .spark {
+  position: absolute; width: var(--s, 14px); height: var(--s, 14px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 0c.8 6.2 5.8 11.2 12 12-6.2.8-11.2 5.8-12 12-.8-6.2-5.8-11.2-12-12C6.2 11.2 11.2 6.2 12 0z'/%3E%3C/svg%3E") center / contain no-repeat;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, .95)) drop-shadow(0 0 8px var(--glow, rgba(255, 150, 210, .7)));
+  animation: twinkle var(--d, 5s) ease-in-out var(--delay, 0s) infinite;
+}
+@keyframes twinkle { 0%, 100% { opacity: .25; transform: scale(.75); } 50% { opacity: 1; transform: scale(1.15); } }
+
+.sky .shoot {
+  position: absolute; top: 12%; left: -160px; width: 130px; height: 2px; border-radius: 2px; opacity: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff);
+  box-shadow: 0 0 8px 1px rgba(255, 255, 255, .8);
+  animation: shoot 16s linear 3s infinite;
+}
+@keyframes shoot {
+  0% { transform: translate(0, 0) rotate(24deg); opacity: 0; }
+  2% { opacity: 1; }
+  9% { transform: translate(75vw, 34vh) rotate(24deg); opacity: 0; }
+  100% { transform: translate(75vw, 34vh) rotate(24deg); opacity: 0; }
+}
+
+/* sparkle dust that follows a mouse pointer */
+.dust {
+  position: fixed; z-index: 9; width: 9px; height: 9px; pointer-events: none; margin: -4px 0 0 -4px;
+  background: var(--h, #ff9fd0); border-radius: 50%; box-shadow: 0 0 8px 2px var(--h, #ff9fd0);
+  animation: dust .8s ease-out forwards;
+}
+@keyframes dust { to { opacity: 0; transform: translateY(16px) scale(.2); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sky *, .dust { animation: none !important; }
+  .sky .star, .sky .spark { opacity: .8; }
+}
