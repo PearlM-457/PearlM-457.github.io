@@ -136,6 +136,26 @@ footer.hero p { margin-bottom:4px; }
   .ring.r1 { height:130px; } .ring.r2 { height:76px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .cabinet, .bolt { animation:none !important; } .bolt { opacity:.8; } }
+/* ===== LIGHT PASTEL THEME ===== */
+.cabinet { color: var(--ink); background: linear-gradient(160deg, rgba(255,255,255,.84), rgba(246,232,255,.8) 55%, rgba(222,238,255,.82)); border-color: #ffb8dc;
+  box-shadow: 0 0 26px rgba(255,159,208,.55), 0 0 80px rgba(143,208,255,.5); }
+@keyframes pulse { 50% { box-shadow: 0 0 40px rgba(255,159,208,.85), 0 0 110px rgba(185,160,255,.6); } }
+.marquee { color: #8a63d2; text-shadow: 0 0 12px rgba(255,255,255,.9), 0 0 16px rgba(255,159,208,.7); }
+.screen { background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(226,238,255,.7)); border: 2px solid #fff; }
+.ring { border-color: rgba(169,139,239,.55); }
+.ring.r2 { border-color: rgba(255,143,199,.65); }
+.cart { box-shadow: inset 0 -6px 0 rgba(0,0,0,.08), 0 8px 18px rgba(138,99,210,.3); }
+.edge { color: #8a63d2; text-shadow: 0 0 14px rgba(255,255,255,.95); }
+.edge.l { background: linear-gradient(90deg, rgba(185,160,255,.38), transparent); }
+.edge.r { background: linear-gradient(270deg, rgba(185,160,255,.38), transparent); }
+.info h3 { color: #8a63d2; }
+.info p, .hint { color: var(--muted); }
+.badge { background: rgba(138,99,210,.12); color: #5a3ea6; }
+.btn { color: #fff; background: linear-gradient(135deg, #ff9fd0, #a98bef); box-shadow: 0 5px 0 #8a63d2; }
+.btn:hover { color: #fff; box-shadow: 0 3px 0 #8a63d2; }
+.btn.alt { color: #5a3ea6; background: #fff; box-shadow: 0 5px 0 #d6c8f5; }
+.bolt { filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 14px #ff9fd0); }
+.bolt path { fill: #b9a0ff; stroke: #fff; }
 </style>
 </head>
 <body>
